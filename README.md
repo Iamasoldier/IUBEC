@@ -82,7 +82,7 @@ sampleData$group <- factor(sampleData$group, levels = c("control", "case"))
 Put the following two files in the same folder:
 
 ```text
-IUBEC.R
+IUBEC_Real.R/IUBEC_simulation.R
 example_usage.R
 ```
 
@@ -160,3 +160,4 @@ table(sampleData$group, sampleData$batch)
 
 8. Corrected counts from IUBEC can be non-integers. This is expected because IUBEC first corrects proportions and then reconstructs counts using the original gene total counts. Rounding corrected counts is not recommended by default.
 9. If a gene has only one isoform, or if the total count of a gene-sample pair is 0, the code keeps the original counts and does not force ILR correction.
+10. IUBEC_Real.R code is applicable to real data because it has corresponding operations on 0 value and sparse value. IUBEC_Simulation. R is used to run our simulation data, as there are generally no zero or sparse values in the simulation data. But the core logic of the two pieces of code is the same, only the handling of 0 values and sparse values is different.
